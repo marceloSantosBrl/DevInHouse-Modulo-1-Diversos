@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
 
         const mostrarClassificacao = function(str){
 
-            let idade = parseInt(str);
+            let idade = parseFloat(str);
 
             if (idade <= 15) {
                 alert('Jovens');
@@ -31,7 +31,7 @@
 
         try {
 
-          if (!isNaN(parseInt(resultadoStr)) && isFinite(resultadoStr)) {
+          if (!isNaN(parseFloat(resultadoStr)) && isFinite(resultadoStr)) {
             if(resultadoStr < 0) {
                 throw new Error('Idade não pode ser menor que 0');
             }

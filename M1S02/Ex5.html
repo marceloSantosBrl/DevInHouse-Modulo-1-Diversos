@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    const MostrarParesImpares = function (numero) {
+        let numeroPares = Math.floor(numero / 2) + 1;
+        let numerosImpares = Math.floor(numero / 2);
+        alert(`Numeros Pares: ${numeroPares}` + '\n' +
+                `Numeros Impares: ${numerosImpares}`);
+    }
+
+    while (true) {
+        let valorEntrada = window.prompt(
+            "Digite um número ou s para sair"
+        );
+        if (valorEntrada === "s") break;
+        let numero = parseFloat(valorEntrada);
+        try {
+            if (!isNaN(numero) && isFinite(valorEntrada)) {
+                MostrarParesImpares(numero)
+            } else {
+                throw new Error();
+            }
+        } catch (err) {
+            alert("Digite um número válido");
+        }
+    }
+</script>
+</body>
+</html>
