@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+        const mostrarClassificacao = function(str){
+
+            let idade = parseInt(str);
+
+            if (idade <= 15) {
+                alert('Jovens');
+            } else if (idade <= 64) {
+                alert('Adultos');
+            } else {
+                alert('Idosos');
+            }
+
+        }
+
+      while (true) {
+
+        let resultadoStr = window.prompt("Digite sua idade ou aperte s para sair");
+
+        if (resultadoStr === 's') break;
+
+        try {
+
+          if (!isNaN(parseInt(resultadoStr)) && isFinite(resultadoStr)) {
+            if(resultadoStr < 0) {
+                throw new Error('Idade não pode ser menor que 0');
+            }
+            mostrarClassificacao(resultadoStr);
+          } else {
+            throw new Error('Digite uma idade válida');
+          }
+
+        } catch (err) {
+          alert(err.message);
+        }
+        
+      }
+
+    </script>
+  </body>
+</html>
