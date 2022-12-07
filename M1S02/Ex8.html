@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    const validateNumber = function (message) {
+        while (true) {
+            let inputString = window.prompt(message);
+            if (inputString === "s") return "s";
+            let number = parseInt(inputString);
+            if (!isNaN(number) && isFinite(inputString)) {
+                return number;
+            } else {
+                alert("Digite um número válido");
+            }
+        }
+    }
+
+    const arrayPa = (valorInicial, raiz) => {
+        let arr = [valorInicial];
+        for (let i = 1; i < 10; ++i){
+            arr.push(arr[i-1] + raiz);
+        }
+        return arr;
+    }
+
+    while (true) {
+        let valorInicial = validateNumber("Digite um valor inicial ou s para sair");
+        if(valorInicial === "s") break;
+        let raiz = validateNumber("Digite uma raiz ou s para sair");
+        if (raiz === "s") break;
+        alert("A sequẽncia gerada é " + arrayPa(valorInicial, raiz));
+    }
+
+</script>
+</body>
+</html>
