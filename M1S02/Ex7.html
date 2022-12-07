@@ -42,7 +42,7 @@
     return primeString;
   }
 
-  const validatePrimes = function (message) {
+  const validateNumber = function (message) {
     while (true) {
       let inputString = window.prompt(message);
       if (inputString === "s") return "s";
@@ -57,7 +57,7 @@
 
   while (true) {
 
-    let number = validatePrimes("Digite um número ou s para sair");
+    let number = validateNumber("Digite um número ou s para sair");
     if (number === "s") break;
     let arrPrimes = findPrimes(number);
     let primeCount = countPrimes(arrPrimes);
