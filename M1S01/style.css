@@ -71,6 +71,7 @@ p {
 
 img {
     object-fit: cover;
+    width: 20vw;
 }
 
 .button {
@@ -79,4 +80,9 @@ img {
     border: 2px solid black;
     margin-top: 20px;
     border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
 }
