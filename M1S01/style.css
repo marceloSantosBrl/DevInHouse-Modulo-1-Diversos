@@ -64,6 +64,11 @@ h1{
     background: url("https://images.pexels.com/photos/11276645/pexels-photo-11276645.jpeg") no-repeat;
     background-size: cover;
     height: 5em;
+    transition: color .3s;
+}
+
+h1:hover, p:hover ,a:hover {
+    color: red;
 }
 
 body {
@@ -72,11 +77,17 @@ body {
 
 p {
     font-size: 14px;
+    transition: color .3s;
 }
 
 img {
     object-fit: cover;
     width: 20vw;
+    transition: filter .3s;
+}
+
+img:hover {
+    filter: hue-rotate(90deg);
 }
 
 img.logo {
@@ -88,10 +99,11 @@ img.logo {
 nav a{
     margin-left: 10px;
     margin-right: 10px;
+    transition: color .3s;
 }
 
 .button {
-    width: 50px;
+    width: 5em;
     padding: 10px;
     border: 2px solid black;
     margin-top: 20px;
