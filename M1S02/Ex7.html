@@ -42,7 +42,7 @@
     return primeString;
   };
 
-  const validateNumber = function (message) {
+  const validateNumber = (message) => {
     while (true) {
       const inputString = window.prompt(message);
       if (inputString === 's') return 's';
