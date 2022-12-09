@@ -48,8 +48,12 @@ table {
     border-spacing: 0;
 }
 
-* {
+html {
     box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 h1{
@@ -59,10 +63,11 @@ h1{
     text-align: center;
     background: url("https://images.pexels.com/photos/11276645/pexels-photo-11276645.jpeg") no-repeat;
     background-size: cover;
+    height: 5em;
 }
 
 body {
-    background-color: yellowgreen;
+    background-color: gray;
 }
 
 p {
@@ -72,6 +77,17 @@ p {
 img {
     object-fit: cover;
     width: 20vw;
+}
+
+img.logo {
+    height: 40px;
+    width: 40px;
+    margin-right: auto;
+}
+
+nav a{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .button {
@@ -85,4 +101,21 @@ img {
 .container {
     display: flex;
     justify-content: space-around;
+}
+
+main {
+    margin-top: 4em;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: cadetblue;
+    height: 3em;
+    min-width: 100vw;
 }
