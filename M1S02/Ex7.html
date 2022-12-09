@@ -10,61 +10,59 @@
 <body>
 <script>
 
-  const findPrimes = n => {
-    let arr = Array(n + 1).fill(true);
-    for (let i = 2; i <= Math.sqrt(n); ++i) {
-      if(arr[i] === true) {
+  const findPrimes = (n) => {
+    const arr = Array(n + 1).fill(true);
+    for (let i = 2; i <= Math.sqrt(n); i += 1) {
+      if (arr[i] === true) {
         let j = i * i;
         while (j <= n) {
           arr[j] = false;
-          j = j + i;
+          j += i;
         }
       }
     }
     return arr;
-  }
+  };
 
-  const countPrimes = arr => {
+  const countPrimes = (arr) => {
     let numberOfPrimes = 0;
-    for (let i = 2; i < arr.length; ++i) {
-      if(arr[i]) ++numberOfPrimes;
+    for (let i = 2; i < arr.length; i += 1) {
+      if (arr[i]) numberOfPrimes += 1;
     }
     return numberOfPrimes;
-  }
-  
+  };
+
   const makeStringPrimes = (arr) => {
-    let primeString = "";
-    for (let i = 2; i < arr.length; ++i){
+    let primeString = '';
+    for (let i = 2; i < arr.length; i += 1) {
       if (arr[i]) {
-        primeString += i + "\n";
+        primeString += `${i}\n`;
       }
     }
     return primeString;
-  }
+  };
 
   const validateNumber = function (message) {
     while (true) {
-      let inputString = window.prompt(message);
-      if (inputString === "s") return "s";
-      let number = parseInt(inputString);
-      if (!isNaN(number) && isFinite(inputString)) {
+      const inputString = window.prompt(message);
+      if (inputString === 's') return 's';
+      const number = parseInt(inputString, 10);
+      if (!Number.isNaN(number) && Number.isFinite(inputString)) {
         return number;
-      } else {
-        alert("Digite um número válido");
       }
+      alert('Digite um número válido');
     }
-  }
+  };
 
   while (true) {
-
-    let number = validateNumber("Digite um número ou s para sair");
-    if (number === "s") break;
-    let arrPrimes = findPrimes(number);
-    let primeCount = countPrimes(arrPrimes);
-    let primeString = makeStringPrimes(arrPrimes);
+    const number = validateNumber('Digite um número ou s para sair');
+    if (number === 's') break;
+    const arrPrimes = findPrimes(number);
+    const primeCount = countPrimes(arrPrimes);
+    const primeString = makeStringPrimes(arrPrimes);
     alert(
-            `Temos ${primeCount} entre 1 e ${number} sendo eles:\n` + primeString
-    )
+      `Temos ${primeCount} entre 1 e ${number} sendo eles:\n${primeString}`,
+    );
   }
 
 </script>

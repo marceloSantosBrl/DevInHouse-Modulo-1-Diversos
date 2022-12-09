@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-  </head>
-  <body>
-    <div></div>
-    <script>
-
-      const mostrarTabuada = function(valorStr) {
-        let numero = parseFloat(valorStr);
-        let tabuada = `Tabuada do número ${numero}\n`;
-        for(let i = 0; i <= 10; ++i) {
-          tabuada += `${numero} x ${i} = ${numero * i}\n`;
-        }
-        alert(tabuada);
-      }
-
-      while (true) {
-
-
-        let valorEntrada = window.prompt(
-          "Digite um número para gerar a tabuada ou s para sair"
-        );
-
-        if (valorEntrada === "s") break;
-
-        try {
-          if (!isNaN(parseInt(valorEntrada)) && isFinite(valorEntrada)) {
-            mostrarTabuada(valorEntrada);
-          } else {
-            throw new Error();
-          }
-        } catch (err) {
-          alert("Digite um número válido");
-        }
+</head>
+<body>
+<div></div>
+<script>
+  const alertTimesTable = function (valorStr) {
+    const number = parseFloat(valorStr);
+    let timesTable = `Tabuada do número ${number}\n`;
+    for (let i = 0; i <= 10; i += 1) {
+      timesTable += `${number} x ${i} = ${number * i}\n`;
     }
-    </script>
-  </body>
+    alert(timesTable);
+  };
+
+  while (true) {
+    const inputString = window.prompt('Digite um número para gerar a tabuada ou s para sair');
+
+    if (inputString === 's') break;
+
+    try {
+      if (!Number.isNaN(Number.parseInt(inputString, 10)) && Number.isFinite(inputString)) {
+        alertTimesTable(inputString);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      alert('Digite um número válido');
+    }
+  }
+</script>
+</body>
 </html>
