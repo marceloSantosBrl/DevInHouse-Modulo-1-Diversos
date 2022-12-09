@@ -57,6 +57,8 @@ h1{
     font-size: 20px;
     color: brown;
     text-align: center;
+    background: url("https://images.pexels.com/photos/11276645/pexels-photo-11276645.jpeg") no-repeat;
+    background-size: cover;
 }
 
 body {
