@@ -10,63 +10,62 @@
 <body>
 <script>
 
-    const calculadora = function (a, b, operacao) {
-        let mensagem = "O resultado do seu cálculo é: ";
-        switch (operacao) {
-            case '+':
-                alert(mensagem + (a + b));
-                break;
-            case "-":
-                alert(mensagem + (a - b));
-                break;
-            case "*":
-                alert(mensagem + (a * b));
-                break;
-            case  "/":
-                if (Infinity === Math.abs(a / b)) {
-                    alert("Divisão por zero");
-                    return;
-                }
-                alert(mensagem + (a / b));
-                break;
+  const calculator = function (a, b, operacao) {
+    const message = 'O resultado do seu cálculo é: ';
+    switch (operacao) {
+      case '+':
+        alert(message + (a + b));
+        break;
+      case '-':
+        alert(message + (a - b));
+        break;
+      case '*':
+        alert(message + (a * b));
+        break;
+      case '/':
+        if (Infinity === Math.abs(a / b)) {
+          alert('Divisão por zero');
+          return;
         }
+        alert(message + (a / b));
+        break;
+      default:
+        throw new Error('Erro ao computar resultado');
     }
+  };
 
-    const validarNumero = function (message) {
-        while (true) {
-            let stringEntrada = window.prompt(message);
-            if (stringEntrada === "s") return "s";
-            let numero = parseFloat(stringEntrada);
-            if (!isNaN(numero) && isFinite(stringEntrada)) {
-                return numero;
-            } else {
-                alert("Digite um número válido");
-            }
-        }
-    }
-
-    const validarOperacao = function (message) {
-        while (true) {
-            let stringEntrada = window.prompt(message);
-            if (stringEntrada === "s") return "s";
-            if (["+", "-", "*", "/"].includes(stringEntrada)) {
-                return stringEntrada;
-            } else {
-                alert("Digite uma operação válida");
-            }
-        }
-    }
-
-
+  const validarNumero = function (message) {
     while (true) {
-        let operacao = validarOperacao("Escolha uma operação ou digite s para sair");
-        if (operacao === "s") break;
-        let a = validarNumero("Digite o primeiro número ou digite s para sair");
-        if (a === "s") break;
-        let b = validarNumero("Digite o segundo número ou digite s para sair");
-        if (b === "s") break;
-        calculadora(a, b, operacao);
+      const input = window.prompt(message);
+      if (input === 's') return 's';
+      const inputNumber = parseFloat(input);
+      if (!Number.isNaN(inputNumber) && Number.isFinite(input)) {
+        return inputNumber;
+      }
+      alert('Digite um número válido');
     }
+  };
+
+  const validateOperator = function (message) {
+    while (true) {
+      const input = window.prompt(message);
+      if (input === 's') return 's';
+      if (['+', '-', '*', '/'].includes(input)) {
+        return input;
+      }
+      alert('Digite uma operação válida');
+    }
+  };
+
+  while (true) {
+    const operation = validateOperator('Escolha uma operação ou digite s para sair');
+    if (operation === 's') break;
+    const firstNumber = validarNumero('Digite o primeiro número ou digite s para sair');
+    if (firstNumber === 's') break;
+    const secondNumber = validarNumero('Digite o segundo número ou digite s para sair');
+    if (secondNumber === 's') break;
+    calculator(firstNumber, secondNumber, operation);
+  }
 
 </script>
 </body>

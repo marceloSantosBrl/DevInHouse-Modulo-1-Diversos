@@ -9,30 +9,28 @@
 </head>
 <body>
 <script>
+  let accumulator = 0;
 
-    let acumulador = 0;
+  while (true) {
+    const inputString = window.prompt(
+      'Digite um número\nDigite - 1 para exibir a soma',
+    );
 
-    while (true) {
+    if (inputString === '-1') break;
 
-        let valorEntrada = window.prompt(
-            "Digite um número\nDigite - 1 para exibir a soma"
-        );
-
-        if (valorEntrada === "-1") break;
-
-        try {
-            if (!isNaN(parseInt(valorEntrada)) && isFinite(valorEntrada)) {
-                acumulador += parseFloat(valorEntrada);
-            } else {
-                throw new Error();
-            }
-        } catch (err) {
-            alert("Digite um número válido");
-        }
+    try {
+      if (!Number.isNaN(Number.parseInt(inputString, 10)) && Number.isFinite(inputString)) {
+        accumulator += parseFloat(inputString);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      alert('Digite um número válido');
     }
+  }
 
-    let mensagem = `A soma equivale a ${acumulador}`
-    alert(mensagem);
+  const message = `A soma equivale a ${accumulator}`;
+  alert(message);
 </script>
 </body>
 </html>

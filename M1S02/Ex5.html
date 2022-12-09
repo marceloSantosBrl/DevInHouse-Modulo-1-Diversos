@@ -9,30 +9,28 @@
 </head>
 <body>
 <script>
+  const alertOddNumbers = function (numero) {
+    const evenNumbers = Math.floor(numero / 2) + 1;
+    const oddNumbers = Math.floor(numero / 2);
+    alert(`Numeros Pares: ${evenNumbers}\nNumeros Impares: ${oddNumbers}`);
+  };
 
-    const MostrarParesImpares = function (numero) {
-        let numeroPares = Math.floor(numero / 2) + 1;
-        let numerosImpares = Math.floor(numero / 2);
-        alert(`Numeros Pares: ${numeroPares}` + '\n' +
-                `Numeros Impares: ${numerosImpares}`);
+  while (true) {
+    const inputString = window.prompt(
+      'Digite um número ou s para sair',
+    );
+    if (inputString === 's') break;
+    const number = parseFloat(inputString);
+    try {
+      if (!Number.isNaN(number) && Number.isFinite(inputString)) {
+        alertOddNumbers(number);
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      alert('Digite um número válido');
     }
-
-    while (true) {
-        let valorEntrada = window.prompt(
-            "Digite um número ou s para sair"
-        );
-        if (valorEntrada === "s") break;
-        let numero = parseFloat(valorEntrada);
-        try {
-            if (!isNaN(numero) && isFinite(valorEntrada)) {
-                MostrarParesImpares(numero)
-            } else {
-                throw new Error();
-            }
-        } catch (err) {
-            alert("Digite um número válido");
-        }
-    }
+  }
 </script>
 </body>
 </html>
