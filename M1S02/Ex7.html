@@ -47,7 +47,7 @@
       const inputString = window.prompt(message);
       if (inputString === 's') return 's';
       const number = parseInt(inputString, 10);
-      if (!Number.isNaN(number) && Number.isFinite(inputString)) {
+      if (!Number.isNaN(number) && isFinite(inputString)) {
         return number;
       }
       alert('Digite um número válido');

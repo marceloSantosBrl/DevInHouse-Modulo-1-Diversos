@@ -25,7 +25,7 @@
     if (inputString === 's') break;
     const age = parseFloat(inputString);
     try {
-      if (!Number.isNaN(age) && Number.isFinite(inputString)) {
+      if (!Number.isNaN(age) && isFinite(inputString)) {
         if (age < 0) {
           throw new Error('Idade não pode ser menor que 0');
         }

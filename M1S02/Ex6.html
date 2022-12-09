@@ -39,7 +39,7 @@
       const input = window.prompt(message);
       if (input === 's') return 's';
       const inputNumber = parseFloat(input);
-      if (!Number.isNaN(inputNumber) && Number.isFinite(input)) {
+      if (!Number.isNaN(inputNumber) && isFinite(input)) {
         return inputNumber;
       }
       alert('Digite um número válido');

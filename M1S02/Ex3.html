@@ -24,7 +24,7 @@
     if (inputString === 's') break;
 
     try {
-      if (!Number.isNaN(Number.parseInt(inputString, 10)) && Number.isFinite(inputString)) {
+      if (!Number.isNaN(Number.parseInt(inputString, 10)) && isFinite(inputString)) {
         alertTimesTable(inputString);
       } else {
         throw new Error();
