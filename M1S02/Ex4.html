@@ -16,7 +16,7 @@
       'Digite um número\nDigite - 1 para exibir a soma',
     );
 
-    if (inputString === '-1') break;
+    if (inputString === '-1' || inputString === null) break;
 
     try {
       if (!Number.isNaN(Number.parseInt(inputString, 10)) && isFinite(inputString)) {

@@ -21,7 +21,7 @@
   while (true) {
     const inputString = window.prompt('Digite um número para gerar a tabuada ou s para sair');
 
-    if (inputString === 's') break;
+    if (inputString === 's' || inputString === null) break;
 
     try {
       if (!Number.isNaN(Number.parseInt(inputString, 10)) && isFinite(inputString)) {

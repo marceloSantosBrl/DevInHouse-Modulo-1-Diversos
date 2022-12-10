@@ -22,7 +22,7 @@
   while (true) {
     const inputString = window.prompt('Digite sua idade ou aperte s para sair');
 
-    if (inputString === 's') break;
+    if (inputString === 's' || inputString === null) break;
     const age = parseFloat(inputString);
     try {
       if (!Number.isNaN(age) && isFinite(inputString)) {

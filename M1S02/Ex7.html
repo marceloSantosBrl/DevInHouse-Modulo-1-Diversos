@@ -45,7 +45,7 @@
   const validateNumber = (message) => {
     while (true) {
       const inputString = window.prompt(message);
-      if (inputString === 's') return 's';
+      if (inputString === 's' || inputString === null) return 's';
       const number = parseInt(inputString, 10);
       if (!Number.isNaN(number) && isFinite(inputString)) {
         return number;

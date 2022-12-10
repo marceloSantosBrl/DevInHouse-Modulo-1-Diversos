@@ -19,7 +19,7 @@
     const inputString = window.prompt(
       'Digite um número ou s para sair',
     );
-    if (inputString === 's') break;
+    if (inputString === 's' || inputString === null) break;
     const number = parseFloat(inputString);
     try {
       if (!Number.isNaN(number) && isFinite(inputString)) {

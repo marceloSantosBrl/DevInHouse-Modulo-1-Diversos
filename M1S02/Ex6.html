@@ -37,7 +37,7 @@
   const validarNumero = function (message) {
     while (true) {
       const input = window.prompt(message);
-      if (input === 's') return 's';
+      if (input === 's' || input == null) return 's';
       const inputNumber = parseFloat(input);
       if (!Number.isNaN(inputNumber) && isFinite(input)) {
         return inputNumber;
@@ -49,7 +49,7 @@
   const validateOperator = function (message) {
     while (true) {
       const input = window.prompt(message);
-      if (input === 's') return 's';
+      if (input === 's' || input === null) return 's';
       if (['+', '-', '*', '/'].includes(input)) {
         return input;
       }
