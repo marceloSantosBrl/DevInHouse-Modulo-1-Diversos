@@ -11,13 +11,59 @@
 </head>
 <body>
 <header>
-    <img src="assets/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg" alt="imagem de uma carteira">
-    <h1>Conta Cliente</h1>
+    <img src="assets/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg" alt="imagem de uma carteira" class="header-img">
+    <h1 class="header-h1">Conta Cliente</h1>
 </header>
+<form id="dados-pessoais">
+    <fieldset class="fieldset-identificacao">
+        <label for="nome">Nome:</label>
+        <input type="text" form="dados-pessoais" id="nome" placeholder="John Doe">
+        <label for="cpf">CPF (somente números):</label>
+        <input type="text" form="dados-pessoais" id="cpf" placeholder="99999999999">
+        <label for="celular">Celular (somente números):</label>
+        <input type="text" form="dados-pessoais" id="celular" placeholder="99999999">
+    </fieldset>
+    <fieldset class="fielset-senha">
+        <label for="senha">Senha:</label>
+        <input type="password" form="dados-pessoais" id="senha">
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" form="dados-pessoais" id="confirmarSenha">
+    </fieldset>
+    <fieldset>
+        <button type="button" id="button-enviar">Enviar</button>
+        <button type="button" id="button-resetar">Limpar</button>
+    </fieldset>
+</form>
+<form id="operacoes">
+    <div class="operacoes-conta">
+        <label for="operacoes-conta-input">Conta:</label>
+        <input type="text" form="operacoes" id="operacoes-conta-input">
+    </div>
+    <fieldset class="operacoes-seletor">
+        <label for="operacao-seletor-saque">Saque:</label>
+        <input type="radio" form="operacoes" id="operacao-seletor-saque" name="seletor-operacao">
+        <label for="operacao-seletor-deposito">Depósito:</label>
+        <input type="radio" form="operacoes" id="operacao-seletor-deposito" name="seletor-operacao">
+        <label for="operacoes-seletor-consulta">Consultar Saldo:</label>
+        <input type="radio" form="operacoes" id="operacoes-seletor-consulta" name="seletor-operacao">
+    </fieldset>
+    <div class="operacoes-valor">
+        <label for="operacoes-valor-input">Valor:</label>
+        <input type="text" form="operacoes" id="operacoes-valor-input">
+    </div>
+    <div class="operacoes-senha">
+        <label for="operacoes-senha-input">Senha:</label>
+        <input type="text" form="operacoes" id="operacoes-senha-input">
+    </div>
+    <fieldset class="operacoes-botoes">
+        <button type="button" id="operacoes-botao-confirmar">Enviar</button>
+        <button type="button" id="operacoes-botoes-limpar">Limpar</button>
+    </fieldset>
+</form>
 <footer>
-    <p>Sistema Bancário - Banco Bom Sucesso - DevInHouse 2022 ©</p>
+    <p>Sistema Bancário - Banco Bom Sucesso - DevInHouse 2023 ©</p>
     <div class="telefone">
-        <p>telefone para contato: (99) 9999-9999</p>
+        <p>Telefone para contato: (99) 9999-9999</p>
         <img src="assets/call_FILL0_wght200_GRAD0_opsz20.svg" alt="ícone do telefone">
     </div>
 </footer>
