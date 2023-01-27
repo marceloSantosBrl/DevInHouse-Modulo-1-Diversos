@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>DevInHouse</title>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="app.js"></script>
+</head>
+<body>
+<header>
+    <img alt="imagem de uma carteira" class="img-header"
+         src="assets/account_balance_wallet_FILL0_wght400_GRAD0_opsz48.svg">
+    <h1 class="h1-header">Conta Cliente</h1>
+</header>
+<main>
+    <form id="dados-pessoais">
+        <fieldset class="dados-pessoais-identificacao">
+            <label for="dados-pessoais-nome">Nome:</label>
+            <input form="dados-pessoais" id="dados-pessoais-nome" name="nome" placeholder="John Doe" type="text">
+            <label for="dados-pessoais-cpf">CPF:</label>
+            <input form="dados-pessoais" id="dados-pessoais-cpf" name="cpf" placeholder="999.999.999-99" type="text">
+            <label for="dados-pessoais-celular">Celular:</label>
+            <input form="dados-pessoais" id="dados-pessoais-celular" name="telefone" placeholder="(99) 9999-9999" type="text">
+        </fieldset>
+        <fieldset class="dados-pessoais-senha">
+            <label for="dados-pessoais-senha">Senha:</label>
+            <input form="dados-pessoais" id="dados-pessoais-senha" name="senha" type="password">
+            <label for="dados-pessoais-confirmar-senha">Confirmar Senha:</label>
+            <input form="dados-pessoais" id="dados-pessoais-confirmar-senha" type="password">
+        </fieldset>
+        <fieldset>
+            <button class="botao_enviar" id="dados-pessoais-enviar" type="submit">Enviar</button>
+            <button class="botao_limpar" id="dados-pessoais-limpar" type="reset">Limpar</button>
+        </fieldset>
+    </form>
+    <form id="operacoes">
+        <div class="operacoes-conta">
+            <label for="operacoes-conta-input">Conta:</label>
+            <input form="operacoes" id="operacoes-conta-input" name="conta" type="text">
+        </div>
+        <fieldset class="seletor-operacoes" id="operacoes-seletor">
+            <label for="operacao-seletor-saque">Saque:</label>
+            <input form="operacoes" id="operacao-seletor-saque" name="seletor-operacoes" type="radio">
+            <label for="operacao-seletor-deposito">Depósito:</label>
+            <input form="operacoes" id="operacao-seletor-deposito" name="seletor-operacoes" type="radio">
+            <label for="operacoes-seletor-consulta">Consultar Saldo:</label>
+            <input form="operacoes" id="operacoes-seletor-consulta" name="seletor-operacoes" type="radio">
+        </fieldset>
+        <div class="operacoes-valor">
+            <label for="operacoes-valor-input">Valor:</label>
+            <input form="operacoes" id="operacoes-valor-input" name="valor" type="text">
+        </div>
+        <div>
+            <label for="operacoes-senha-input">Senha:</label>
+            <input form="operacoes" id="operacoes-senha-input" name="senha" type="password">
+        </div>
+        <fieldset id="operacoes-botoes">
+            <button class="botao_enviar" id="operacoes-botao-confirmar" type="submit">Enviar</button>
+            <button class="botao_limpar" id="operacoes-botoes-limpar" type="reset">Limpar</button>
+        </fieldset>
+    </form>
+</main>
+<footer>
+    <p>Sistema Bancário - Banco Bom Sucesso - DevInHouse 2023 ©</p>
+    <div class="telefone">
+        <p>Telefone para contato: (99) 9999-9999</p>
+        <img alt="ícone do telefone" src="assets/call_FILL0_wght200_GRAD0_opsz20.svg">
+    </div>
+</footer>
+</body>
+</html>

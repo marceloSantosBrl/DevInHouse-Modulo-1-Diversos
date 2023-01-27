@@ -48,11 +48,7 @@ botaoEnviar.addEventListener('click', () => {
       celular: '',
       senha: '',
       conta: 0,
-      saldo: new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-        minimumFractionDigits: 2,
-      }),
+      saldo: 0,
     };
     const nome = dadosPessoais.nome.value;
     adicionarDadoTextual(dadosDoFormulario, nome, 'nome');
@@ -81,16 +77,88 @@ botaoLimpar.addEventListener('click', () => {
 
 const operacoesFormElemento = document.querySelector('#operacoes');
 const operacoesFormEstado = operacoesFormElemento.elements;
-let opcaoSelecionada = '';
+let operacaoSelecionada = '';
 
-operacoesFormEstado[1].addEventListener('change', () => {
-  const radios = document.querySelectorAll('.operacoes-seletor input');
+operacoesFormEstado['operacoes-seletor'].addEventListener('change', () => {
+  const radios = document.querySelectorAll('#operacoes-seletor input');
   if (radios[0].checked) {
-    opcaoSelecionada = 'saque';
+    operacaoSelecionada = 'saque';
   } else if (radios[1].checked) {
-    opcaoSelecionada = 'deposito';
+    operacaoSelecionada = 'deposito';
   } else {
-    opcaoSelecionada = 'saldo';
+    operacaoSelecionada = 'saldo';
   }
-  document.querySelector('#operacoes-valor-input').disabled = opcaoSelecionada === 'saldo';
+  document.querySelector('#operacoes-valor-input').disabled = operacaoSelecionada === 'saldo';
+});
+
+const encontrarConta = (numeroDaConta) => {
+  const conta = store.find((contasSalvas) => contasSalvas.conta === numeroDaConta);
+  if (conta) {
+    return conta;
+  }
+  throw new Error('Conta não encontrada');
+};
+
+const validarSenha = (conta, senha) => {
+  if (senha === conta.senha) {
+    return undefined;
+  }
+  throw new Error('A senha digitada está incorreta');
+};
+
+const realizarSaque = (conta, valorDeposito) => {
+  const valorCorrigido = valorDeposito.replace(',', '.');
+  const valorNumerico = Number.parseFloat(valorCorrigido, 10);
+  if (Number.isNaN(valorNumerico) || !Number.isFinite(valorCorrigido)) {
+    throw new Error('Digite um número válido');
+  }
+  if (valorNumerico < 0) {
+    throw new Error('Digite um número maior que zero');
+  }
+};
+
+const realizarDeposito = (conta, valorDeposito) => {
+  const valorCorrigido = valorDeposito.replace(',', '.');
+  const valorNumerico = Number.parseFloat(valorCorrigido, 10);
+  if (Number.isNaN(valorNumerico) || !Number.isFinite(valorCorrigido)) {
+    throw new Error('Digite um número válido');
+  }
+  if (valorNumerico < 0) {
+    throw new Error('Digite um número maior que zero');
+  }
+  conta.saldo += valorNumerico;
+  const [saldoFormatado, depositoFormatado] = [conta.saldo, valorDeposito].map((valor) => valor.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  }));
+  alert(`Sucesso! Foram depositados ${depositoFormatado} na sua conta.\n`
+        + `Seu saldo atual é de ${saldoFormatado}.`);
+};
+
+const consultarSaldo = (conta) => {
+  alert(conta.saldo);
+};
+
+operacoesFormEstado['operacoes-botao-confirmar'].addEventListener('click', () => {
+  try {
+    const conta = encontrarConta(operacoesFormEstado['operacoes-conta-input'].value);
+    const senhaProvida = operacoesFormEstado['operacoes-senha-input'].value;
+    validarSenha(conta, senhaProvida);
+    const valor = operacoesFormEstado['operacoes-valor-input'].value;
+    switch (operacaoSelecionada) {
+      case 'saque':
+        realizarSaque(conta, valor);
+        break;
+      case 'deposito':
+        realizarDeposito(conta, valor);
+        break;
+      case 'saldo':
+        consultarSaldo(conta);
+        break;
+      default:
+        alert('Selecione uma opção');
+    }
+  } catch (e) {
+    alert(e);
+  }
 });

@@ -1,3 +1,7 @@
+:root {
+  --bg-branco-acinzentado: #c7d2fe;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -115,7 +119,7 @@ header {
 footer {
   margin-top: auto;
   height: 3rem;
-  background-color: #c7d2fe;
+  background-color: var(--bg-branco-acinzentado);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,7 +183,7 @@ form {
   row-gap: 2rem;
   height: 60vh;
   width: 50vw;
-  background-color: #c7d2fe;
+  background-color: var(--bg-branco-acinzentado);
   border-radius: 0.5rem;
   margin-left: 1rem;
   padding: 1rem;
