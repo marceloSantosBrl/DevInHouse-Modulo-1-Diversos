@@ -132,12 +132,12 @@ const procurarConta = (numeroConta, contasArr) => {
       return conta;
     }
   }
-  throw new Error('Conta nao encontrada');
+  throw new Error('Conta não encontrada');
 };
 
 const conferirSenha = (senhaConta, conta) => {
   if (senhaConta !== conta.senha) {
-    throw new Error('As senhas não conferem');
+    throw new Error('Senha incorreta');
   }
 };
 
@@ -147,8 +147,8 @@ const realizarSaque = (valorSaque, conta) => {
   if (Number.isNaN(valorNumerico) || !isFinite(valorCorrigido)) {
     throw new Error('Digite um valor para saque válido');
   }
-  if (valorNumerico < 0) {
-    throw new Error('Digite um valor para maior que zero');
+  if (valorNumerico <= 0) {
+    throw new Error('Digite um valor para saque maior que zero');
   }
   if (valorNumerico > conta.saldo) {
     throw new Error('Saldo insuficiente para realizar a operação');
@@ -163,7 +163,7 @@ const realizarDeposito = (valorDeposito, conta) => {
   if (Number.isNaN(valorNumerico) || !isFinite(valorCorrigido)) {
     throw new Error('Digite um valor para deposito válido');
   }
-  if (valorNumerico < 0) {
+  if (valorNumerico <= 0) {
     throw new Error('Digite um valor para depósito maior que zero');
   }
   conta.saldo += valorNumerico;
