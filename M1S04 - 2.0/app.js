@@ -56,7 +56,16 @@ confirmacao.addEventListener('input', () => {
 });
 
 const dadosPessoais = document.getElementById('dados-pessoais');
-const contas = [];
+const contas = [
+  {
+    nome: 'Thais Bertoldo',
+    cpf: '999.999.999.99',
+    celular: '(99) 99999-9999',
+    senha: '1',
+    conta: 1674333795439,
+    saldo: 0,
+  },
+];
 
 dadosPessoais.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -92,6 +101,7 @@ const atualizarValorInput = (operacao) => {
   const valorInput = document.getElementById('operacoes-valor-input');
   if (operacao === 'saldo') {
     valorInput.setAttribute('disabled', '');
+    valorInput.value = '';
   } else {
     valorInput.removeAttribute('disabled');
   }
@@ -135,10 +145,10 @@ const realizarSaque = (valorSaque, conta) => {
   const valorCorrigido = valorSaque.replace(',', '.');
   const valorNumerico = Number.parseFloat(valorCorrigido, 10);
   if (Number.isNaN(valorNumerico) || !isFinite(valorCorrigido)) {
-    throw new Error('Digite um número válido');
+    throw new Error('Digite um valor para saque válido');
   }
   if (valorNumerico < 0) {
-    throw new Error('Digite um número maior que zero');
+    throw new Error('Digite um valor para maior que zero');
   }
   if (valorNumerico > conta.saldo) {
     throw new Error('Saldo insuficiente para realizar a operação');
@@ -151,13 +161,13 @@ const realizarDeposito = (valorDeposito, conta) => {
   const valorCorrigido = valorDeposito.replace(',', '.');
   const valorNumerico = Number.parseFloat(valorCorrigido, 10);
   if (Number.isNaN(valorNumerico) || !isFinite(valorCorrigido)) {
-    throw new Error('Digite um número válido');
+    throw new Error('Digite um valor para deposito válido');
   }
   if (valorNumerico < 0) {
-    throw new Error('Digite um número maior que zero');
+    throw new Error('Digite um valor para depósito maior que zero');
   }
   conta.saldo += valorNumerico;
-  const [saldoFormatado, depositoFormatado] = [conta.saldo, valorDeposito].map((valor) => valor.toLocaleString('pt-br', {
+  const [saldoFormatado, depositoFormatado] = [conta.saldo, valorNumerico].map((valor) => valor.toLocaleString('pt-br', {
     style: 'currency',
     currency: 'BRL',
   }));
@@ -166,7 +176,11 @@ const realizarDeposito = (valorDeposito, conta) => {
 };
 
 const consultarSaldo = (conta) => {
-  alert(`Seu saldo atual é de ${conta.saldo}`);
+  const saldoFormatado = conta.saldo.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  });
+  alert(`Seu saldo atual é de ${saldoFormatado}`);
 };
 
 const formaOperacoes = document.getElementById('operacoes');
