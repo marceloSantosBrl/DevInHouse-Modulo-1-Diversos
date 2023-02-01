@@ -2,6 +2,7 @@ import Funcionario from './Funcionario.js';
 import Fatura from './Fatura.js';
 import Personagem from './Personagem.js';
 import { Cachorro, Gato } from './Animal.js';
+import CalculadoraDeArea from './CalculadoraDeArea.js';
 
 let marcelo;
 try {
@@ -36,3 +37,15 @@ const snoopy = new Cachorro('snoopy', 10);
 console.log( snoopy.som );   // "latido"     
 const frajola = new Gato('frajola', 8);
 console.log( frajola.som );   // "miado"
+
+const triangB = new CalculadoraDeArea("triangulo", 6, 8);
+const areaTB = triangB.calcular();
+console.log(areaTB);
+
+const quadA = new CalculadoraDeArea("quadrado", 4);
+const areaQA = quadA.calcular();
+console.log(areaQA);
+
+const retA = new CalculadoraDeArea("retangulo", 4, 6);
+const areaRT = retA.calcular();
+console.log(areaRT);
