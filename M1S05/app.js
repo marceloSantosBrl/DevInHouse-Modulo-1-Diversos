@@ -1,6 +1,7 @@
 import Funcionario from './Funcionario.js';
 import Fatura from './Fatura.js';
 import Personagem from './Personagem.js';
+import { Cachorro, Gato } from './Animal.js';
 
 let marcelo;
 try {
@@ -29,3 +30,9 @@ console.log(alyx.percentualVida); // 50
 alyx.usouKitMedico();
 
 console.log(alyx.percentualVida); // 60
+
+
+const snoopy = new Cachorro('snoopy', 10);
+console.log( snoopy.som );   // "latido"     
+const frajola = new Gato('frajola', 8);
+console.log( frajola.som );   // "miado"
