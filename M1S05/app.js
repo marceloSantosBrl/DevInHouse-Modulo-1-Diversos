@@ -4,6 +4,8 @@ import Personagem from './Personagem.js';
 import { Cachorro, Gato } from './Animal.js';
 import CalculadoraDeArea from './CalculadoraDeArea.js';
 import Juros from './Juros.js';
+import Time from './Time.js';
+import Partida from './Partida.js';
 
 let marcelo;
 try {
@@ -55,3 +57,11 @@ console.log(`Juros Simples testeJuros1: ${testeJuros1.calcularJurosSimples()},
 Juros composto testeJuros1: ${testeJuros1.calcularJurosComposto()}`);
 console.log(`Juros Simples testeJuros2: ${testeJuros2.calcularJurosSimples()},
 Juros composto testeJuros2: ${testeJuros2.calcularJurosComposto()}`);
+
+const brasil = new Time('Brasil', 'BRA', 10, 3, 2, 50, 10);
+
+const seteAUm = new Partida('ALE', 7, 'BRA', 1);
+
+brasil.computarPartida(seteAUm);
+
+brasil.exibirSituacao();

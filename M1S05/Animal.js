@@ -7,16 +7,15 @@ class Animal {
 }
 
 class Cachorro extends Animal {
-  constructor(...args){
+  constructor(...args) {
     super(...args, 'latido');
   }
 }
 
-
 class Gato extends Animal {
-  constructor(...args){
+  constructor(...args) {
     super(...args, 'miado');
   }
 }
 
-export {Cachorro, Gato};
+export { Cachorro, Gato };
