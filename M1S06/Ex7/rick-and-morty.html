@@ -8,12 +8,24 @@
     <style>
         ul {
             list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        div {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
     </style>
     <script src="Ex7.js" defer></script>
 </head>
 <body>
     <main>
+        <div>
+            <button id="previous">Previous</button>
+            <button id="next">Next</button>
+        </div>
         <output>
             <ul id="output-ul"></ul>
         </output>

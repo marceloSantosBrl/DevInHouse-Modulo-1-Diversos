@@ -1,5 +1,5 @@
-const fetchCharacthers = async () => {
-  const rawData = await fetch('https://rickandmortyapi.com/api/character');
+const fetchCharacthers = async (page) => {
+  const rawData = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
   const characthersJson = await rawData.json();
   const returnObject = {};
   characthersJson
@@ -22,10 +22,30 @@ const insertCharachtersNode = (obj, node) => {
   Object.entries(obj).forEach((pair) => insertPairNode(pair, node));
 };
 
-const main = async () => {
-  const obj = await fetchCharacthers();
+const renderPage = async (pageNumber) => {
+  const obj = await fetchCharacthers(pageNumber);
   const output = document.getElementById('output-ul');
+  output.innerHTML = '';
   insertCharachtersNode(obj, output);
 };
 
-main();
+let currentPage = 1;
+renderPage(currentPage);
+
+const nextButtonFunction = () => {
+  currentPage += 1;
+  renderPage(currentPage);
+};
+
+const previousButtonFunction = () => {
+  if (currentPage !== 1) {
+    currentPage -= 1;
+    renderPage(currentPage);
+  }
+};
+
+const previousButton = document.getElementById('previous');
+previousButton.addEventListener('click', previousButtonFunction);
+
+const nextButton = document.getElementById('next');
+nextButton.addEventListener('click', nextButtonFunction);
